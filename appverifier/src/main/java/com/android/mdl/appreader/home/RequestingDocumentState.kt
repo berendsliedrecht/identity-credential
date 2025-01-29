@@ -10,8 +10,9 @@ data class RequestingDocumentState(
     val olderThan18: DocumentElementsRequest = DocumentElementsRequest(R.string.mdl_over_18),
     val olderThan21: DocumentElementsRequest = DocumentElementsRequest(R.string.mdl_over_21),
     val mandatoryFields: DocumentElementsRequest = DocumentElementsRequest(R.string.mdl_mandatory_fields),
+    val utrechtInteropEvent: DocumentElementsRequest = DocumentElementsRequest(R.string.utrecht_interop_event, true),
     val fullMdl: DocumentElementsRequest = DocumentElementsRequest(R.string.mdl_full),
-    val mdlForUsTransportation: DocumentElementsRequest = DocumentElementsRequest(R.string.mdl_us_transportation, true),
+    val mdlForUsTransportation: DocumentElementsRequest = DocumentElementsRequest(R.string.mdl_us_transportation),
     val custom: DocumentElementsRequest = DocumentElementsRequest(R.string.mdl_custom),
     val mVR: DocumentElementsRequest = DocumentElementsRequest(R.string.mvr_full),
     val micov: DocumentElementsRequest = DocumentElementsRequest(R.string.micov_full),
@@ -25,6 +26,7 @@ data class RequestingDocumentState(
     val hasMdlElementsSelected: Boolean
         get() = olderThan18.isSelected
                 || olderThan21.isSelected
+                || utrechtInteropEvent.isSelected
                 || mandatoryFields.isSelected
                 || fullMdl.isSelected
                 || mdlForUsTransportation.isSelected
@@ -52,6 +54,10 @@ data class RequestingDocumentState(
                 append("mDL for US transportation")
                 append("; ")
             }
+            if (utrechtInteropEvent.isSelected) {
+                append("Utrecht Interop Event")
+                append("; ")
+            }
             if (custom.isSelected) {
                 append("mDL Custom")
                 append("; ")
@@ -77,6 +83,7 @@ data class RequestingDocumentState(
     fun isMdlRequest(request: DocumentElementsRequest): Boolean {
         return request.title == olderThan18.title
                 || request.title == olderThan21.title
+                || request.title == utrechtInteropEvent.title
                 || request.title == mandatoryFields.title
                 || request.title == fullMdl.title
                 || request.title == mdlForUsTransportation.title

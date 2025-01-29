@@ -116,6 +116,34 @@ class CreateRequestViewModel : ViewModel() {
                             )
                         )
 
+                    uiState.utrechtInteropEvent.isSelected ->
+                        requestDocumentList.addRequestDocument(
+                            getRequestDocument(
+                                RequestDocument.MDL_DOCTYPE,
+                                intentToRetain,
+                                filterElement = { el ->
+                                    listOf(
+                                        "family_name",
+                                        "given_name",
+                                        "birth_date",
+                                        "issue_date",
+                                        "expiry_date",
+                                        "issuing_country",
+                                        "issuing_authority",
+                                        "document_number",
+                                        "portrait",
+                                        "un_distinguishing_sign",
+
+//                                        TODO: currently broken!
+//                                        "driving_privileges",
+
+                                        "signature_usual_mark",
+                                        "age_over_18"
+                                    ).contains(el.attribute.identifier)
+                                }
+                            )
+                        )
+
                     uiState.fullMdl.isSelected || uiState.isCustomMdlRequest ->
                         requestDocumentList.addRequestDocument(
                             getRequestDocument(

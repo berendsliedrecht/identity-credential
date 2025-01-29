@@ -556,7 +556,7 @@ object DrivingLicense {
                 "aamva_family_name_truncation",
                 "Family Name Truncation",
                 "A code that indicates whether the field has been truncated",
-                true,
+                false,
                 AAMVA_NAMESPACE,
                 Icon.PERSON,
                 null
@@ -574,7 +574,7 @@ object DrivingLicense {
                 "aamva_given_name_truncation",
                 "Given Name Truncation",
                 "A code that indicates whether either the first name or the middle name(s) have been truncated",
-                true,
+                false,
                 AAMVA_NAMESPACE,
                 Icon.PERSON,
                 null
@@ -726,7 +726,7 @@ object DrivingLicense {
                 "aamva_hazmat_endorsement_expiration_date",
                 "HAZMAT Endorsement Expiration Date",
                 "Date on which the hazardous material endorsement granted by the document is no longer valid.",
-                true,
+                false,
                 AAMVA_NAMESPACE,
                 Icon.CALENDAR_CLOCK,
                 null
@@ -737,7 +737,7 @@ object DrivingLicense {
                 "aamva_sex",
                 "Sex",
                 "mDL holder’s sex",
-                true,
+                false,
                 AAMVA_NAMESPACE,
                 Icon.EMERGENCY,
                 SampleData.SEX_ISO218.toDataItem()
@@ -822,7 +822,7 @@ object DrivingLicense {
                 "aamva_version",
                 "AAMVA Version Number",
                 "A number identifying the version of the AAMVA mDL data element set",
-                true,
+                false,
                 AAMVA_NAMESPACE,
                 Icon.NUMBERS,
                 null
