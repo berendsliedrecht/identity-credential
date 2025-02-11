@@ -314,8 +314,9 @@ class ShowDocumentFragment : Fragment() {
                 val vehicleIndent = "&nbsp;".repeat(4)
                 append("<div>${vehicleIndent}Vehicle class: $categoryCode</div>")
                 val indent = "&nbsp;".repeat(8)
-                categoryMap.getOrNull("issue_date")?.asDateString?.let { append("<div>${indent}Issued: $it</div>") }
-                categoryMap.getOrNull("expiry_date")?.asDateString?.let { append("<div>${indent}Expires: $it</div>") }
+                // TODO(berend): enable when the issue_date and expiry_date are fixed in the mdoc library
+//                categoryMap.getOrNull("issue_date")?.asDateString?.let { append("<div>${indent}Issued: $it</div>") }
+//                categoryMap.getOrNull("expiry_date")?.asDateString?.let { append("<div>${indent}Expires: $it</div>") }
             }
         }
         return htmlDisplayValue
