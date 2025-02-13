@@ -98,7 +98,7 @@ object KeysAndCertificates {
             getCertificate(context, R.raw.ul_cert_iaca_02_cer),
             getCertificate(context, R.raw.ul_micov_testset),
             getCertificate(context, R.raw.owf_wallet_iaca_root),
-            getCertificate(context, R.raw.animo),
+            getCertificate(context, R.raw.animo_uncompressed),
         )
 
 }
