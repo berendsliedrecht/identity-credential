@@ -64,47 +64,25 @@ fun CreateRequestDropDown(
                 text = "Request mDL",
                 style = MaterialTheme.typography.titleSmall
             )
-            ChipsRow(
-                left = selectionState.olderThan18,
-                right = selectionState.olderThan21,
-                onRequestFieldsToggled = onSelectionUpdated
-            )
-            ChipsRow(
-                left = selectionState.mandatoryFields,
-                right = selectionState.fullMdl,
-                onRequestFieldsToggled = onSelectionUpdated
-            )
-            ChipsRow(
-                left = selectionState.mdlForUsTransportation,
-                right = selectionState.custom,
+
+            Spacer(modifier = Modifier.height(24.dp))
+            ElementChip(
+                modifier = Modifier.fillMaxWidth(),
+                documentElementsRequest = selectionState.olderThan18,
                 onRequestFieldsToggled = onSelectionUpdated
             )
 
             Spacer(modifier = Modifier.height(24.dp))
             ElementChip(
                 modifier = Modifier.fillMaxWidth(),
-                documentElementsRequest = selectionState.mVR,
+                documentElementsRequest = selectionState.utrechtInteropEventMdl,
                 onRequestFieldsToggled = onSelectionUpdated
             )
 
             Spacer(modifier = Modifier.height(8.dp))
             ElementChip(
                 modifier = Modifier.fillMaxWidth(),
-                documentElementsRequest = selectionState.micov,
-                onRequestFieldsToggled = onSelectionUpdated
-            )
-
-            Spacer(modifier = Modifier.height(8.dp))
-            ElementChip(
-                modifier = Modifier.fillMaxWidth(),
-                documentElementsRequest = selectionState.euPid,
-                onRequestFieldsToggled = onSelectionUpdated
-            )
-
-            Spacer(modifier = Modifier.height(8.dp))
-            ElementChip(
-                modifier = Modifier.fillMaxWidth(),
-                documentElementsRequest = selectionState.mdlWithLinkage,
+                documentElementsRequest = selectionState.utrechtInteropEventPid,
                 onRequestFieldsToggled = onSelectionUpdated
             )
 

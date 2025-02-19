@@ -10,12 +10,14 @@
     <string name="ok">OK</string>
     <string name="select_the_transfer_method">Select the transfer method</string>
     <string name="request_items">Request items</string>
-
+A
     <!-- Request Selection -->
     <string name="mdl_over_18">Older than 18</string>
     <string name="mdl_over_21">Older than 21"</string>
     <string name="mdl_mandatory_fields">Mandatory fields"</string>
     <string name="mdl_us_transportation">mDL for US transportation</string>
+    <string name="utrecht_interop_event_mdl">Utrecht Interop Event mDL</string>
+    <string name="utrecht_interop_event_pid">Utrecht Interop Event PID</string>
     <string name="mdl_custom">Custom"</string>
     <string name="mdl_full">Full mDL"</string>
     <string name="mdl_micov_linkage">Request mDL + micov with linkage</string>

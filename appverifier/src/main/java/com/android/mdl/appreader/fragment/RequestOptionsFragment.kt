@@ -94,8 +94,8 @@ class RequestOptionsFragment() : Fragment() {
                         modifier = Modifier.fillMaxSize(),
                         state = state,
                         onSelectionUpdated = createRequestViewModel::onRequestUpdate,
-                        onRequestConfirm = { onRequestConfirmed(it.isCustomMdlRequest) },
-                        onRequestQRCodePreview = { navigateToQRCodeScan(it.isCustomMdlRequest) },
+                        onRequestConfirm = { onRequestConfirmed() },
+                        onRequestQRCodePreview = { navigateToQRCodeScan() },
                         onRequestPreviewProtocol = { onRequestViaCredman("preview", it)},
                         onRequestOpenId4VPProtocol = { onRequestViaCredman("openid4vp", it)}
                     )
@@ -324,35 +324,17 @@ class RequestOptionsFragment() : Fragment() {
         startActivity(intent)
     }
 
-    private fun onRequestConfirmed(isCustomMdlRequest: Boolean) {
-        if (isCustomMdlRequest) {
-            val destination = getCustomMdlDestination()
-            findNavController().navigate(destination)
-        }
-    }
+    private fun onRequestConfirmed() {}
 
-    private fun navigateToQRCodeScan(isCustomMdlRequest: Boolean) {
+    private fun navigateToQRCodeScan() {
         val documentList = calcRequestDocumentList()
-        val destination = if (isCustomMdlRequest) {
-            getCustomMdlDestination()
-        } else {
-            if (args.keepConnection) {
+        val destination = if (args.keepConnection) {
                 RequestOptionsFragmentDirections.toTransfer(documentList, true)
             } else {
                 RequestOptionsFragmentDirections.toScanDeviceEngagement(documentList)
             }
-        }
-        findNavController().navigate(destination)
-    }
 
-    private fun getCustomMdlDestination():NavDirections {
-        val requestDocumentList = calcRequestDocumentList()
-        val mdl = requestDocumentList.getAll().first { it.docType == RequestDocument.MDL_DOCTYPE }
-        return RequestOptionsFragmentDirections.toRequestCustom(
-            mdl,
-            requestDocumentList,
-            args.keepConnection
-        )
+        findNavController().navigate(destination)
     }
 
     private fun calcRequestDocumentList(): RequestDocumentList {
